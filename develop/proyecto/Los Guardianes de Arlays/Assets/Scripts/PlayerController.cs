@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public int damage;
 
     private Rigidbody2D rbd2d;
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -132,11 +132,10 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log("player: dead");
-
-            die();
+            health = 0;
         }
+
+        //el script PlayerDied comprueba paralelamente si la salud es 0 o menos y mata al jugador si lo es
     }
 
 

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelComplete : MonoBehaviour
 {
     private int nextScene;
+    public GameObject levelCompletedUI;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,21 @@ public class LevelComplete : MonoBehaviour
             MenuManager.levelAt = nextScene - 3;
 
             //todo save level with savesystem
+            
+            levelCompletedUI.SetActive(true);
 
-            SceneManager.LoadScene("Level Completed");
+            Invoke("levelCompleted", 1f);
 
         }
+    }
+
+
+    private void levelCompleted()
+    {
+        levelCompletedUI.SetActive(false);
+
+        SaveSystem.deletePlayerSave();
+
+        SceneManager.LoadScene("LevelSelect");
     }
 }

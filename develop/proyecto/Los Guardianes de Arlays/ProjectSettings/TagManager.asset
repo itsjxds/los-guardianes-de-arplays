@@ -50,6 +50,9 @@ TagManager:
   - name: Ground
     uniqueID: 795247235
     locked: 0
+  - name: Decor
+    uniqueID: 1355378633
+    locked: 0
   - name: Grass
     uniqueID: 582967373
     locked: 0
