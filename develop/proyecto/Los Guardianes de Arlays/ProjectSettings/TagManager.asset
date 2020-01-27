@@ -24,8 +24,8 @@ TagManager:
   - Player
   - Fall
   - AutoSave
-  - 
-  - 
+  - EnemyBarrier
+  - EnemySpawner
   - 
   - 
   - 
