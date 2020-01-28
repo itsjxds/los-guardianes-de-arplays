@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     //variables para atacar
     public GameObject attackObject;
     private float timeBtwAttack = 0;
-    private float startTimeBtwAttack = 0.4f;
+    private float startTimeBtwAttack = 0.7f;
     public LayerMask whatIsEnemies;
     public bool attackActive = false;
 
