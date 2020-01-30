@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6208621534128174985}
   - component: {fileID: 1880569921245573453}
   - component: {fileID: 3330290042791660502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: crate-stack
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
