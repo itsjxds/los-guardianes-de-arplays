@@ -126,13 +126,11 @@ public class EnemyController : MonoBehaviour
                 takeDamage(col.GetComponent<PlayerController>().damage);
                 
                 
-                col.gameObject.GetComponent<PlayerController>().enemyJump();
+                col.gameObject.GetComponent<PlayerController>().enemyJump(10f);
             } else
             {
                 col.gameObject.GetComponent<PlayerController>().takeDamage(damage, transform.position.x);
             }
-            
-            
         }
     }
 }

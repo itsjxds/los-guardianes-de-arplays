@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 7868952699944237699}
   - component: {fileID: 474287445342843466}
   - component: {fileID: 7023406844846512926}
-  m_Layer: 0
+  - component: {fileID: -1988525649847492105}
+  - component: {fileID: 817897222706600274}
+  m_Layer: 8
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,6 +94,55 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9166667, y: 0.45833334}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2505119, y: 0.036880307}
+      - {x: 0.12337822, y: 0.0892382}
+      - {x: -0.010810051, y: 0.032244246}
+      - {x: -0.12420665, y: 0.08923776}
+      - {x: -0.24296306, y: 0.041784834}
+      - {x: -0.38743004, y: 0.094346605}
+      - {x: -0.40826306, y: 0.052282427}
+      - {x: -0.40437582, y: -0.03524713}
+      - {x: 0.40663117, y: -0.033266004}
+      - {x: 0.39825818, y: 0.037751187}
+      - {x: 0.38583004, y: 0.0892382}
+--- !u!114 &-1988525649847492105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095604980698155832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025087c9058984645887f901c1a3b668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+--- !u!60 &817897222706600274
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095604980698155832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -114,7 +165,7 @@ PolygonCollider2D:
       - {x: -0.24296306, y: 0.041784834}
       - {x: -0.38743004, y: 0.094346605}
       - {x: -0.40826306, y: 0.052282427}
-      - {x: -0.39824614, y: -0.22916645}
-      - {x: 0.38824126, y: -0.2240576}
+      - {x: -0.40437582, y: -0.03524713}
+      - {x: 0.40663117, y: -0.033266004}
       - {x: 0.39825818, y: 0.037751187}
       - {x: 0.38583004, y: 0.0892382}

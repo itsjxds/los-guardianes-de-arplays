@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     public void takeDamage(int damage, float posEnemy)
     {
         health -= damage;
-        
+
         enemyKnockback(posEnemy);
 
         Debug.Log("player: damage taken, health: " + health);
@@ -164,12 +164,14 @@ public class PlayerController : MonoBehaviour
         float side = Mathf.Sign(enemyPosition - transform.position.x);
         Debug.Log("side: "+side);
 
+        enemyJump(10f);
+
         //rbd2d.velocity = Vector2.left * side * jumpPower;
         //rbd2d.AddForce(Vector2.left * 60, ForceMode2D.Impulse);
         //rbd2d.AddForce(new Vector2(rbd2d.position.x, jumpPower));
 
         //todo el más convincente hasta la fecha tbh
-        rbd2d.velocity = new Vector2(0, rbd2d.position.y);
+        //rbd2d.velocity = new Vector2(0, rbd2d.position.y);
         //rbd2d.AddForce(new Vector2(jumpPower*side, rbd2d.position.y), ForceMode2D.Impulse);
 
         //todo A QUIEN LE IMPORTA PORQUE EL KNOCKBACK TIENE CONFLICTO CON EL SALTO LOL IDK WHY
@@ -177,12 +179,34 @@ public class PlayerController : MonoBehaviour
         movement = false;
         GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
 
-        Invoke("enableMovement", 0.8f);
+        Invoke("enableMovement", 0.75f);
     }
 
-    public void enemyJump()
+    /*public IEnumerator knockback()
     {
-        jump();
+        Debug.Log("knockback ");
+
+        float timer = 0;
+        float kbdur = 0.02f;
+        Vector2 kbdir = rbd2d.position;
+
+        while (timer < kbdur)
+        {
+            rbd2d.AddForce(new Vector2 (-10, 2));
+            timer += Time.deltaTime;
+        }
+
+        movement = false;
+        GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
+
+        Invoke("enableMovement", 0.8f);
+
+        yield return 0;
+    }*/
+
+    public void enemyJump(float power)
+    {
+        rbd2d.velocity = new Vector2(rbd2d.velocity.x, power);
     }
 
 
