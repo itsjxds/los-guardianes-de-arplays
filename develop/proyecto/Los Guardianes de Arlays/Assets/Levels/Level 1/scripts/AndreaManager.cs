@@ -5,21 +5,20 @@ using UnityEngine;
 public class AndreaManager : MonoBehaviour
 {
     public GameObject door;
+    public GameObject andreaWaiting;
+    public bool interacting = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(interacting)
+        {
+            openDoor();
+        }
     }
 
     private void openDoor ()
     {
         door.GetComponent<DoorManager>().doorOpen = true;
+        andreaWaiting.SetActive(true);
     }
 }
