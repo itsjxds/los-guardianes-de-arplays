@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-
-    GameObject thunder;
-
     public Animator animator;
 
     // Start is called before the first frame update
@@ -21,8 +18,11 @@ public class AnimationController : MonoBehaviour
         float speed = GetComponentInParent<PlayerController>().axisH;
         animator.SetFloat("speed", Mathf.Abs(speed));
 
-        bool thunder = GetComponent<AlastairController>().thunderActive;
-        animator.SetBool("thunder_ability", thunder);
+        if(PlayerPrefs.activeCharacter == Characters.Alastair)
+        {
+            bool thunder = GetComponent<AlastairController>().thunderActive;
+            animator.SetBool("thunder_ability", thunder);
+        }
 
         bool attack = GetComponentInParent<PlayerController>().attackActive;
         animator.SetBool("attack", attack);
