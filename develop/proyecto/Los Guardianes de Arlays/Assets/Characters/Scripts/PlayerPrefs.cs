@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerPrefs
 {
-    public static Characters activeCharacter = Characters.Andrea;
+    public static Characters activeCharacter = Characters.Alastair;
 }
 
 public enum Characters
