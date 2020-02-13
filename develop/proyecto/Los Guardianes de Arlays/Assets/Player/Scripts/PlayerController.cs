@@ -30,7 +30,9 @@ public class PlayerController : MonoBehaviour
     private bool movement = true;
 
     public int health;
+    private int maxHealth;
     public int damage;
+    private bool healing = false;
 
     private Rigidbody2D rbd2d;
 
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
     {
         rbd2d = GetComponent<Rigidbody2D>();
         startScaleX = transform.localScale.x;
+
+        maxHealth = health;
     }
 
 
@@ -53,6 +57,12 @@ public class PlayerController : MonoBehaviour
         }
         
         attack();
+
+        if(health<maxHealth && !healing)
+        {
+            healing = true;
+            Invoke("heal", 15f);
+        }
 
     }
     
@@ -221,6 +231,13 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("YOU DIED!!!");
         SceneManager.LoadScene("LevelSelect");
+    }
+
+
+    void heal ()
+    {
+        health += 5;
+        healing = false;
     }
 
 
