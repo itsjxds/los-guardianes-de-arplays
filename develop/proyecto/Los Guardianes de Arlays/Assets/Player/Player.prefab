@@ -160,6 +160,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7742757100078259464}
+  - component: {fileID: 31852408956782751}
+  - component: {fileID: 48023481917816763}
+  - component: {fileID: 2240315211819090187}
   m_Layer: 10
   m_Name: Andrea
   m_TagString: Untagged
@@ -182,6 +185,44 @@ Transform:
   m_Father: {fileID: 8364150489269929901}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31852408956782751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801446625652711424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b83666774f37a6439938b7aaf892ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &48023481917816763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801446625652711424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eff3ab9a8f51354a858492bb4bd3bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!114 &2240315211819090187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801446625652711424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f425e01ceafba479042450ab765108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpsValue: 2
 --- !u!1 &8364150489269929899
 GameObject:
   m_ObjectHideFlags: 0

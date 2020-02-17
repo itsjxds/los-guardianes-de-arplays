@@ -50,14 +50,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        //cuando se pulsa espacio, jump=true, esto se usa de nuevo en el fixed update
-        if ((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && isGrounded)
+
+        //jump when up arrow or w is pressed
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            jump();
+            if (PlayerPrefs.activeCharacter == Characters.Andrea)
+            {   
+                //double jump
+                GetComponentInChildren<DoubleJump>().isGrounded = isGrounded;
+                GetComponentInChildren<DoubleJump>().doubleJump();
+            }
+            else
+            {
+                //can only jump when grounded
+                if (isGrounded)
+                {
+                    jump();
+                }
+            }
         }
-        
+
         attack();
 
+        //healing over time
         if(health<maxHealth && !healing)
         {
             healing = true;
@@ -95,7 +110,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void jump()
+    public void jump()
     {
         rbd2d.velocity = new Vector2(rbd2d.velocity.x, jumpPower);
     }
