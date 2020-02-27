@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 1.8f;
     public bool moveRight;
 
+    public bool patrolEnemy = true;
     private bool movement = true;
     private bool movementWasOff = false;
 
@@ -27,36 +28,36 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //comprueba si el enemigo se ha chocado (cosa que disminuye su velocidad) para cambiar de dirección
+            //comprueba si el enemigo se ha chocado (cosa que disminuye su velocidad) para cambiar de dirección
 
-        if(!movementWasOff)
-        {
-            if (rbd2d.velocity.x > -0.01f && rbd2d.velocity.x < 0.01f)
+            if (!movementWasOff)
             {
-                if (moveRight)
+                if (rbd2d.velocity.x > -0.01f && rbd2d.velocity.x < 0.01f)
                 {
-                    moveRight = false;
-                }
-                else
-                {
-                    moveRight = true;
+                    if (moveRight)
+                    {
+                        moveRight = false;
+                    }
+                    else
+                    {
+                        moveRight = true;
+                    }
                 }
             }
-        } else
-        {
-            movementWasOff = false;
-        }
-        
-
-        
-
+            else
+            {
+                movementWasOff = false;
+            }
+     
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        move();
-
+        if (patrolEnemy)
+        {
+            move();
+        }
         
     }
 
@@ -79,6 +80,9 @@ public class EnemyController : MonoBehaviour
                 rbd2d.velocity = new Vector2(speed, rbd2d.velocity.y);
                 transform.localScale = new Vector3(startScaleX, transform.localScale.y, transform.localScale.z);
             }
+        } else
+        {
+            rbd2d.velocity = new Vector2(0, rbd2d.velocity.y);
         }
 
         
@@ -88,7 +92,7 @@ public class EnemyController : MonoBehaviour
     {
         movement = false;
         GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
-        rbd2d.velocity = new Vector2(0, rbd2d.position.y);
+        rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
 
         health -= damage;
         Debug.Log("Enemy: damage taken: " + health);
