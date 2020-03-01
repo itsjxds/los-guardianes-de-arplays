@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if(health<maxHealth && !healing)
         {
             healing = true;
-            Invoke("heal", 15f);
+            Invoke("heal", 18f);
         }
 
     }

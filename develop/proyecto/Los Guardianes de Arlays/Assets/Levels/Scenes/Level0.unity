@@ -459,7 +459,7 @@ MonoBehaviour:
   dialogue:
     name: 'Tutorial:'
     sentences:
-    - Press SPACE to attack
+    - Press SPACE to attack, you can also jump on the enemy
     - Alastair (your character) can also use a cooldown aoe attack pressing 'C'
 --- !u!1001 &71412089
 PrefabInstance:
@@ -90923,6 +90923,121 @@ Transform:
   m_Father: {fileID: 639414463}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1629591708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1758119284}
+    m_Modifications:
+    - target: {fileID: 4436484197974692936, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Name
+      value: invisiblePlatform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.8899994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 0.88419616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 0.6996672
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.9761969
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.057484865
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.67573917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.11737323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.63069636
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436484197974692934, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.710207
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29d970e20aabd2e48b20be46eb0b8ccf, type: 3}
+--- !u!4 &1629591709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1629591708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1631028949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436484197974692935, guid: 29d970e20aabd2e48b20be46eb0b8ccf,
@@ -91391,6 +91506,7 @@ Transform:
   - {fileID: 1513283891}
   - {fileID: 1631028949}
   - {fileID: 1746732726}
+  - {fileID: 1629591709}
   m_Father: {fileID: 1888799785}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
