@@ -708,7 +708,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 241562471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1688533412}
+        m_MethodName: hideDetails
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &241562471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,6 +1221,7 @@ GameObject:
   - component: {fileID: 551714219}
   - component: {fileID: 551714218}
   - component: {fileID: 551714217}
+  - component: {fileID: 551714220}
   m_Layer: 5
   m_Name: Andrea
   m_TagString: Untagged
@@ -1257,10 +1269,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.68235296, g: 1, b: 0.98039216, a: 0.7764706}
-    m_PressedColor: {r: 0.68235296, g: 1, b: 0.98039216, a: 1}
-    m_SelectedColor: {r: 0.68235296, g: 1, b: 0.98039216, a: 1}
-    m_DisabledColor: {r: 0.34509805, g: 0.47843137, b: 1, a: 0.627451}
+    m_HighlightedColor: {r: 0.3529412, g: 0.6117647, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.3529412, g: 0.6117647, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.3529412, g: 0.6117647, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.101960786, g: 0.1882353, b: 0.5294118, a: 0.627451}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1290,12 +1302,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 551714220}
+        m_MethodName: showDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1337,6 +1349,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551714215}
   m_CullTransparentMesh: 0
+--- !u!114 &551714220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551714215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034c882a92133f14baabacf34a138db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  details:
+    icon: {fileID: 21300000, guid: 259be0f91bde9ab418b8f2eea5082185, type: 3}
+    name: Andrea
+    stats: 5 hl  10 attk
+    abilities: 'Ability: double jump'
 --- !u!1 &582962419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,6 +2634,7 @@ GameObject:
   - component: {fileID: 993555819}
   - component: {fileID: 993555818}
   - component: {fileID: 993555817}
+  - component: {fileID: 993555821}
   m_Layer: 5
   m_Name: Alastair
   m_TagString: Untagged
@@ -2666,12 +2696,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 993555821}
+        m_MethodName: showDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2732,6 +2762,23 @@ RectTransform:
   m_AnchoredPosition: {x: -255, y: 31}
   m_SizeDelta: {x: 74.7, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &993555821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993555816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034c882a92133f14baabacf34a138db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  details:
+    icon: {fileID: 21300000, guid: 0bf64e0e840f0c64fa84f9c600837a50, type: 3}
+    name: "Alasta\xEFr"
+    stats: 5 hl  10 attk
+    abilities: 'Ability: Thunder AOE 10 attk'
 --- !u!1 &1009571043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3402,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523107513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3365,12 +3412,12 @@ RectTransform:
   - {fileID: 1539085475}
   - {fileID: 148201690}
   - {fileID: 241562469}
-  m_Father: {fileID: 2040878736}
-  m_RootOrder: 3
+  m_Father: {fileID: 1688533411}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1525163076
@@ -3840,6 +3887,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544263195}
   m_CullTransparentMesh: 0
+--- !u!1 &1688533410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688533411}
+  - component: {fileID: 1688533412}
+  m_Layer: 5
+  m_Name: DetailsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1688533411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688533410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1523107514}
+  m_Father: {fileID: 2040878736}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1688533412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688533410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27243d802d4b04b4e9bd54ee0dd01231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconUI: {fileID: 582962421}
+  nameUI: {fileID: 912458077}
+  statsUI: {fileID: 1539085476}
+  abilitiesUI: {fileID: 148201691}
+  detailsUI: {fileID: 1523107513}
 --- !u!1 &1731849972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,7 +4086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1766772425
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4485,7 +4586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2040878736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4500,7 +4601,7 @@ RectTransform:
   - {fileID: 1544263196}
   - {fileID: 720252594}
   - {fileID: 629334220}
-  - {fileID: 1523107514}
+  - {fileID: 1688533411}
   m_Father: {fileID: 422034777}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
