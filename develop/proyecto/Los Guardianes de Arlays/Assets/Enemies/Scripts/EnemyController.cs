@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rbd2d;
     public float startScaleX;
 
+    public Animator animator;
+
     public int health;
     public int damage;
 
@@ -32,7 +34,7 @@ public class EnemyController : MonoBehaviour
 
             if (!movementWasOff)
             {
-                if (rbd2d.velocity.x > -0.01f && rbd2d.velocity.x < 0.01f)
+                if (rbd2d.velocity.x > -0.01f && rbd2d.velocity.x < 0.01f && patrolEnemy)
                 {
                     if (moveRight)
                     {
@@ -48,7 +50,10 @@ public class EnemyController : MonoBehaviour
             {
                 movementWasOff = false;
             }
-     
+
+            //animación de caminar
+            animator.SetFloat("speed", Mathf.Abs(speed));
+
     }
 
     // Update is called once per frame

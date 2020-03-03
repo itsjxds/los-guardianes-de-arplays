@@ -28,7 +28,8 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Vector2.Distance(transform.position, target.position) > stoppingDistance)
+
+        if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  
         } else
@@ -41,6 +42,7 @@ public class EnemyFollow : MonoBehaviour
 
     void changeScaleX()
     {
+        //todo no funciona
         //cambia la scale de x de positiva si va a la derecha a negativa si va a la izquierda
         if (rb2d.velocity.x > -0.01f)
         {

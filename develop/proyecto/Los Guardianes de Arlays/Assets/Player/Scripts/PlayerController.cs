@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower= 12f;
 
     //variables para saber si está tocando el suelo
-    private bool isGrounded; //true si el jugador está tocando el suelo, false si no
+    public bool isGrounded; //true si el jugador está tocando el suelo, false si no
     public Transform groundCheck;  //objeto a los pies del jugador que servirá para crear un circulo
     public LayerMask whatIsGround;  //capa del suelo
 

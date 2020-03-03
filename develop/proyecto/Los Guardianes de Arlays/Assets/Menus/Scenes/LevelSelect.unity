@@ -1364,7 +1364,7 @@ MonoBehaviour:
   details:
     icon: {fileID: 21300000, guid: 259be0f91bde9ab418b8f2eea5082185, type: 3}
     name: Andrea
-    stats: 5 hl  10 attk
+    stats: 5 hp 2 attack
     abilities: 'Ability: double jump'
 --- !u!1 &582962419
 GameObject:
@@ -2777,8 +2777,8 @@ MonoBehaviour:
   details:
     icon: {fileID: 21300000, guid: 0bf64e0e840f0c64fa84f9c600837a50, type: 3}
     name: "Alasta\xEFr"
-    stats: 5 hl  10 attk
-    abilities: 'Ability: Thunder AOE 10 attk'
+    stats: 5 hp 2 attack
+    abilities: 'Ability: Thunder AOE 2 attack'
 --- !u!1 &1009571043
 GameObject:
   m_ObjectHideFlags: 0

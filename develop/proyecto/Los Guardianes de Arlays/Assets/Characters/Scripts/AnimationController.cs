@@ -26,5 +26,8 @@ public class AnimationController : MonoBehaviour
 
         bool attack = GetComponentInParent<PlayerController>().attackActive;
         animator.SetBool("attack", attack);
+
+        bool grounded = GetComponentInParent<PlayerController>().isGrounded;
+        animator.SetBool("grounded", grounded);
     }
 }

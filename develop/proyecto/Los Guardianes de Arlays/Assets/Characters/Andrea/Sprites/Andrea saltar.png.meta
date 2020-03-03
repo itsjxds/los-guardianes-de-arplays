@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: a019167c47cf96847971a7e13ac95d9e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4304407730615822298
+    second: Andrea saltar_0
+  - first:
+      213: -8330699127551925388
+    second: Andrea saltar_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -84,7 +90,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Andrea saltar_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 122
+        width: 226
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81bef83e75299f14b8db05d81bc4ac1f
+      internalID: -4304407730615822298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Andrea saltar_1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 121
+        width: 255
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01a3d67adcb3044bad4f31ba72f42a2
+      internalID: -8330699127551925388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
