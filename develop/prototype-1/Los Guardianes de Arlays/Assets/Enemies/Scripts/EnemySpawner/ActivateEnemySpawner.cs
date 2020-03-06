@@ -14,6 +14,10 @@ public class ActivateEnemySpawner : MonoBehaviour
         spawnerAllowed = spawnController.GetComponent<EnemySpawnerController>().spawnerAllowed;
     }
 
+    private void disableSpawner () {
+        spawnController.GetComponent<EnemySpawnerController>().spawnerAllowed = false;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -25,6 +29,7 @@ public class ActivateEnemySpawner : MonoBehaviour
             else
             {
                 spawnController.GetComponent<EnemySpawnerController>().spawnerAllowed = true;
+                Invoke("disableSpawner", 10f);
             }
             this.gameObject.SetActive(false);
         }
