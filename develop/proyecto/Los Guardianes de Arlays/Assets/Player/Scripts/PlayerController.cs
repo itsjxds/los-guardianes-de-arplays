@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool attackActive = false;
 
     private bool movement = true;
+    private bool beingDamaged = false;
 
     public int health;
     private int maxHealth;
@@ -149,18 +150,23 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage(int damage, float posEnemy)
     {
-        health -= damage;
-
-        enemyKnockback(posEnemy);
-
-        Debug.Log("player: damage taken, health: " + health);
-
-        if (health <= 0)
+        if (!beingDamaged)
         {
-            health = 0;
-        }
+            health -= damage;
 
-        //el script PlayerDied comprueba paralelamente si la salud es 0 o menos y mata al jugador si lo es
+            beingDamaged = true;
+
+            enemyKnockback(posEnemy);
+
+            Debug.Log("player: damage taken, health: " + health);
+
+            if (health <= 0)
+            {
+                health = 0;
+            }
+
+            //el script PlayerDied comprueba paralelamente si la salud es 0 o menos y mata al jugador si lo es
+        }
     }
 
 
@@ -237,6 +243,7 @@ public class PlayerController : MonoBehaviour
 
     void enableMovement()
     {
+        beingDamaged = false;
         movement = true;
         GetComponentInChildren<ChangeColorKnockback>().changeColorWhite();
     }
