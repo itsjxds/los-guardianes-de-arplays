@@ -55,7 +55,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6890291649537059103}
-  - component: {fileID: 6731079377958621685}
   m_Layer: 5
   m_Name: LevelFailed
   m_TagString: MainMenu
@@ -84,18 +83,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6731079377958621685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692918746316865303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1721c4edb79509c42af03bdf5be61900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2939391835065098907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1732,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378158023848803365}
-  - component: {fileID: 8146534715277770548}
   m_Layer: 5
   m_Name: LevelCompleted
   m_TagString: MainMenu
@@ -1774,18 +1760,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8146534715277770548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613269087856667302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1721c4edb79509c42af03bdf5be61900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6980516909967933920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,11 +2442,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8112539512617865293, guid: 29823311f84ecab4da007349f5b3e97a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1959504109387209483, guid: 29823311f84ecab4da007349f5b3e97a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2577,6 +2546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112539512617865293, guid: 29823311f84ecab4da007349f5b3e97a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112539512710153873, guid: 29823311f84ecab4da007349f5b3e97a,
         type: 3}

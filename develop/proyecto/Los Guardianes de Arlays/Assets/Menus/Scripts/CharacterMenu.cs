@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class CharacterMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void saveCharacter()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SaveSystem.saveGameData();
     }
 
     public void activateAlastair() {
         PlayerPrefs.activeCharacter = Characters.Alastair;
         Debug.Log(PlayerPrefs.activeCharacter);
+        saveCharacter();
     }
 
     public void activateAndrea()
     {
         PlayerPrefs.activeCharacter = Characters.Andrea;
         Debug.Log(PlayerPrefs.activeCharacter);
+        saveCharacter();
     }
 }

@@ -22,14 +22,14 @@ public class LevelComplete : MonoBehaviour
         {
             this.gameObject.SetActive(false);
 
-            //todo go to level completed scene
-
             Debug.Log("Level completed!!");
 
             MenuManager.levelAt = nextScene - 3;
 
-            //todo save level with savesystem
-            
+            //guarda la partida
+            SaveSystem.saveGameData();
+
+            //muestra la pantalla de nivel completado
             levelCompletedUI.SetActive(true);
 
             Invoke("levelCompleted", 1f);
