@@ -13,7 +13,7 @@ public class EnemyFollow : MonoBehaviour
 
     //variables para atacar
     public float startTimeBtwAttack = 3f;
-    private float timeBtwAttack;
+    private float timeBtwAttack = 0f;
     public GameObject weapon;
 
     //variable para cambiar la dirección del personaje según hacia dónde se mueva
@@ -35,7 +35,7 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Vector2.Distance(transform.position, target.position) < inactiveDistance)
+        if (Vector2.Distance(transform.position, target.position) < inactiveDistance)
         {
             //si la distancia entre el enemigo y el jugador es mayor que la distancia a la que hay que pararse
             if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
@@ -47,11 +47,17 @@ public class EnemyFollow : MonoBehaviour
             }
             else
             {
-                attack();
-
                 animator.SetFloat("speed", 0);
+
+                //todo no ataca
+                Debug.Log("Meele enemy attack "+timeBtwAttack);
+
+                animator.SetBool("attack", true);
+
+                attack();
             }
-        } else
+        }
+        else
         {
             animator.SetFloat("speed", 0);
         }
@@ -59,23 +65,25 @@ public class EnemyFollow : MonoBehaviour
         changeScaleX();
     }
 
-    private void attack ()
+    private void attack()
     {
-        if (timeBtwAttack == 0)
+        if (timeBtwAttack <= 0)
         {
-                timeBtwAttack = startTimeBtwAttack;
+            timeBtwAttack = startTimeBtwAttack;
 
-                animator.SetBool("attack", true);
+            animator.SetBool("attack", true);
 
-                weapon.SetActive(true);
-                weapon.SetActive(false);
+            /*weapon.SetActive(true);
+            weapon.SetActive(false);*/
 
-                animator.SetBool("attack", false);
+            
 
-            } else
-            {
-                timeBtwAttack -= Time.deltaTime;
-            }
+        }
+        else
+        {
+            animator.SetBool("attack", false);
+            timeBtwAttack -= Time.deltaTime;
+        }
     }
 
     void changeScaleX()
