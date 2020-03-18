@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    public Animator animator;
+
+    //variables de seguir al jugador
     public float speed;
-    public float stoppingDistance = 3;
+    public float stoppingDistance = 2.5f;
+    public float inactiveDistance = 20;
+
+    //variables para atacar
+    public float startTimeBtwAttack = 3f;
+    private float timeBtwAttack;
+    public GameObject weapon;
 
     //variable para cambiar la dirección del personaje según hacia dónde se mueva
     private float startScaleX;
-    private Rigidbody2D rb2d;
 
     private Transform target;
 
@@ -19,7 +27,6 @@ public class EnemyFollow : MonoBehaviour
         GetComponent<EnemyController>().patrolEnemy = false;
 
         startScaleX = transform.localScale.x;
-        rb2d = GetComponent<Rigidbody2D>();
 
         speed = GetComponent<EnemyController>().speed + 1.2f;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -28,27 +35,57 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
+        if(Vector2.Distance(transform.position, target.position) < inactiveDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  
+            //si la distancia entre el enemigo y el jugador es mayor que la distancia a la que hay que pararse
+            if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
+            {
+                //el enemigo se mueve hacia el jugador
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                //animación de caminar
+                animator.SetFloat("speed", 1);
+            }
+            else
+            {
+                attack();
+
+                animator.SetFloat("speed", 0);
+            }
         } else
         {
-
+            animator.SetFloat("speed", 0);
         }
 
         changeScaleX();
     }
 
+    private void attack ()
+    {
+        if (timeBtwAttack == 0)
+        {
+                timeBtwAttack = startTimeBtwAttack;
+
+                animator.SetBool("attack", true);
+
+                weapon.SetActive(true);
+                weapon.SetActive(false);
+
+                animator.SetBool("attack", false);
+
+            } else
+            {
+                timeBtwAttack -= Time.deltaTime;
+            }
+    }
+
     void changeScaleX()
     {
-        //todo no funciona
         //cambia la scale de x de positiva si va a la derecha a negativa si va a la izquierda
-        if (rb2d.velocity.x > -0.01f)
+        if (target.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(startScaleX, transform.localScale.y, transform.localScale.z);
         }
-        if (rb2d.velocity.x > 0.01f)
+        if (target.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-startScaleX, transform.localScale.y, transform.localScale.z);
         }

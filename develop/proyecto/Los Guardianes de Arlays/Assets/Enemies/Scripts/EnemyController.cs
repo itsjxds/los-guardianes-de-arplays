@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (patrolEnemy)
+        {
             //comprueba si el enemigo se ha chocado (cosa que disminuye su velocidad) para cambiar de dirección
 
             if (!movementWasOff)
@@ -51,9 +53,9 @@ public class EnemyController : MonoBehaviour
                 movementWasOff = false;
             }
 
-            //animación de caminar
-            animator.SetFloat("speed", Mathf.Abs(speed));
-
+                //animación de caminar
+                animator.SetFloat("speed", Mathf.Abs(rbd2d.velocity.x));
+            }
     }
 
     // Update is called once per frame
@@ -89,25 +91,26 @@ public class EnemyController : MonoBehaviour
         {
             rbd2d.velocity = new Vector2(0, rbd2d.velocity.y);
         }
-
-        
     }
 
     public void takeDamage(int damage)
     {
-        movement = false;
-        GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
-        rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
-
-        health -= damage;
-        Debug.Log("Enemy: damage taken: " + health);
-
-        Invoke("enableMovement", 0.6f);
-
-        if (health <= 0)
+        if (movement)
         {
-            Destroy(gameObject);
-            Debug.Log("Enemy: dead");
+            movement = false;
+            GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
+            rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
+
+            health -= damage;
+            Debug.Log("Enemy: damage taken: " + health);
+
+            Invoke("enableMovement", 0.6f);
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                Debug.Log("Enemy: dead");
+            }
         }
     }
 
