@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     public int damage;
     private bool healing = false;
+    public GameObject bloodEffect;
 
     private Rigidbody2D rbd2d;
 
@@ -152,6 +153,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!beingDamaged)
         {
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+
             health -= damage;
 
             beingDamaged = true;

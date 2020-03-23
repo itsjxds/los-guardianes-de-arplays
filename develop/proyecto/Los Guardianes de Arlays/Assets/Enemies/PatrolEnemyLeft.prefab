@@ -439,6 +439,8 @@ MonoBehaviour:
   animator: {fileID: 978239787066863716}
   health: 5
   damage: 5
+  bloodEffect: {fileID: 5907064056711192878, guid: b75a9e1452a7d4246a03e7d5c29d686f,
+    type: 3}
 --- !u!95 &978239787066863716
 Animator:
   serializedVersion: 3

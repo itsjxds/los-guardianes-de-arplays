@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
 
     public int health;
     public int damage;
+    public GameObject bloodEffect;
 
 
     // Start is called before the first frame update
@@ -98,6 +99,7 @@ public class EnemyController : MonoBehaviour
         if (movement)
         {
             movement = false;
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
             GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
             rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
 

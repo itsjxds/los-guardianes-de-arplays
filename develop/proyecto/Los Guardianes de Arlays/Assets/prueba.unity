@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 8879697927839343317, guid: 69818809bfa68ae4dbe32e4407233022,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8877560473781245693, guid: 69818809bfa68ae4dbe32e4407233022,
         type: 3}
@@ -7287,26 +7287,6 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3068571429463741447, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
-        type: 3}
-      propertyPath: alastair
-      value: 
-      objectReference: {fileID: 668380900}
-    - target: {fileID: 6158095788069627143, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
-        type: 3}
-      propertyPath: characters.Array.data[0]
-      value: 
-      objectReference: {fileID: 668380900}
-    - target: {fileID: 6158095788069627143, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
-        type: 3}
-      propertyPath: characters.Array.data[1]
-      value: 
-      objectReference: {fileID: 35686757}
-    - target: {fileID: 5517014731584549137, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
-        type: 3}
-      propertyPath: m_Name
-      value: ThunderButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3869225505026361682, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7411,6 +7391,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068571429463741447, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
+        type: 3}
+      propertyPath: alastair
+      value: 
+      objectReference: {fileID: 668380900}
+    - target: {fileID: 6158095788069627143, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
+        type: 3}
+      propertyPath: characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 668380900}
+    - target: {fileID: 6158095788069627143, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
+        type: 3}
+      propertyPath: characters.Array.data[1]
+      value: 
+      objectReference: {fileID: 35686757}
+    - target: {fileID: 5517014731584549137, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
+        type: 3}
+      propertyPath: m_Name
+      value: ThunderButton
       objectReference: {fileID: 0}
     - target: {fileID: 3869225505026361683, guid: 8d12222eadb85f04290dbbbaf5e8ea2c,
         type: 3}
@@ -7671,6 +7671,8 @@ MonoBehaviour:
   animator: {fileID: 1489010693}
   health: 15
   damage: 5
+  bloodEffect: {fileID: 5907064056711192878, guid: b75a9e1452a7d4246a03e7d5c29d686f,
+    type: 3}
 --- !u!4 &1489010691
 Transform:
   m_ObjectHideFlags: 0
@@ -8028,7 +8030,7 @@ PrefabInstance:
     - target: {fileID: 6984965956253191249, guid: f1e50c5d8e8611a4f943e00af3a45a1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6982828506422868089, guid: f1e50c5d8e8611a4f943e00af3a45a1f,
         type: 3}
@@ -8322,3 +8324,77 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2489016255434056157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1574113801002868638, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 176.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490726687105430308, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823562974312255026, guid: a81d62557972e8a4ea070db9f68b434f,
+        type: 3}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 517550881}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a81d62557972e8a4ea070db9f68b434f, type: 3}
