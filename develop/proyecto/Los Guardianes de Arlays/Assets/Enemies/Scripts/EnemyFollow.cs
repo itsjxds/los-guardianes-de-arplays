@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyFollow : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class EnemyFollow : MonoBehaviour
 
     //variables de seguir al jugador
     public float speed;
-    public float stoppingDistance = 2.5f;
+    private float startStoppingDistance;
+    public float stoppingDistance = 2.3f;
     public float inactiveDistance = 20;
 
     //variables para atacar
@@ -28,6 +30,8 @@ public class EnemyFollow : MonoBehaviour
 
         startScaleX = transform.localScale.x;
 
+        startStoppingDistance = GetComponent<EnemyFollow>().stoppingDistance;
+
         speed = GetComponent<EnemyController>().speed + 1.2f;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -35,6 +39,16 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //agranda la distancia para que no se acerque al jugador cuando está saltando por encima
+        if (target.position.y > transform.position.y)
+        {
+            stoppingDistance++;
+        }
+        else {
+            stoppingDistance = startStoppingDistance;
+        }
+
+
         if (Vector2.Distance(transform.position, target.position) < inactiveDistance)
         {
             //si la distancia entre el enemigo y el jugador es mayor que la distancia a la que hay que pararse
@@ -44,21 +58,20 @@ public class EnemyFollow : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                 //animación de caminar
                 animator.SetFloat("speed", 1);
+
+                timeBtwAttack = 0;
             }
             else
             {
                 animator.SetFloat("speed", 0);
-
-                //todo no ataca
-                Debug.Log("Meele enemy attack "+timeBtwAttack);
-
-                animator.SetBool("attack", true);
 
                 attack();
             }
         }
         else
         {
+            timeBtwAttack = 0;
+
             animator.SetFloat("speed", 0);
         }
 
@@ -71,22 +84,24 @@ public class EnemyFollow : MonoBehaviour
         {
             timeBtwAttack = startTimeBtwAttack;
 
-            animator.SetBool("attack", true);
+            animator.SetBool("attack2", true);
+            weapon.SetActive(true);
 
-            /*weapon.SetActive(true);
-            weapon.SetActive(false);*/
-
-            
-
+            Invoke("stopAttacking", 0.05f);
         }
         else
         {
-            animator.SetBool("attack", false);
             timeBtwAttack -= Time.deltaTime;
         }
     }
 
-    void changeScaleX()
+    private void stopAttacking ()
+    {
+        weapon.SetActive(false);
+        animator.SetBool("attack2", false);
+    }
+
+    private void changeScaleX()
     {
         //cambia la scale de x de positiva si va a la derecha a negativa si va a la izquierda
         if (target.position.x > transform.position.x)
