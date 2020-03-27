@@ -122,8 +122,6 @@ public class PlayerController : MonoBehaviour
     {
         if (timeBtwAttack <= 0)
         {
-            Debug.Log("can attack");
-
             //si el tiempo de recarga del ataque ha llegado a 0, puedes atacar
             if (Input.GetKeyDown(KeyCode.Space))
             {

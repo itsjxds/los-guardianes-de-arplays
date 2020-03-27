@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = GetComponentInParent<EnemyController>().damage + damageIncrement;
+        //damage = GetComponentInParent<EnemyController>().damage + damageIncrement;
     }
 
     // Update is called once per frame
@@ -24,7 +24,8 @@ public class EnemyAttack : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             Debug.Log("collision enemy sword with player");
-            col.GetComponent<PlayerController>().takeDamage(damage, transform.position.y);
+            col.GetComponent<PlayerController>().takeDamage(GetComponentInParent<EnemyController>().damage + damageIncrement, transform.position.y);
         }
     }
+
 }

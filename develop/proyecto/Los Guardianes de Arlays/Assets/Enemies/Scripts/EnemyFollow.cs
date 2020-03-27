@@ -14,9 +14,11 @@ public class EnemyFollow : MonoBehaviour
     public float inactiveDistance = 20;
 
     //variables para atacar
-    public float startTimeBtwAttack = 3f;
+    public float startTimeBtwAttack = 2f;
     private float timeBtwAttack = 0f;
     public GameObject weapon;
+
+    private bool knockedBack = false;
 
     //variable para cambiar la dirección del personaje según hacia dónde se mueva
     private float startScaleX;
@@ -39,6 +41,8 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        knockedBack = GetComponent<EnemyController>().knockedBack;
+
         //agranda la distancia para que no se acerque al jugador cuando está saltando por encima
         if (target.position.y > transform.position.y)
         {
@@ -54,10 +58,13 @@ public class EnemyFollow : MonoBehaviour
             //si la distancia entre el enemigo y el jugador es mayor que la distancia a la que hay que pararse
             if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
             {
-                //el enemigo se mueve hacia el jugador
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                //animación de caminar
-                animator.SetFloat("speed", 1);
+                if(!knockedBack)
+                {
+                    //el enemigo se mueve hacia el jugador
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                    //animación de caminar
+                    animator.SetFloat("speed", 1);
+                }
 
                 timeBtwAttack = 0;
             }
@@ -86,12 +93,11 @@ public class EnemyFollow : MonoBehaviour
 
             animator.SetBool("attack2", true);
             weapon.SetActive(true);
-
-            Invoke("stopAttacking", 0.05f);
         }
         else
         {
             timeBtwAttack -= Time.deltaTime;
+            stopAttacking();
         }
     }
 
