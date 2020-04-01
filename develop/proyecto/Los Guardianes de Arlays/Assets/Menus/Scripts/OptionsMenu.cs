@@ -1,12 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
     private string backMenu;
+    public Slider volumeSlider;
 
+    void Start()
+    {
+        volumeSlider.value = MenuManager.audioVolume;
+    }
+
+    void Update ()
+    {
+        changeVolume();
+    }
 
     public void goBack ()
     {
@@ -26,6 +37,10 @@ public class OptionsMenu : MonoBehaviour
                 PauseMenu.backFromOptionsMenu = true;
                 break;
         }
+    }
+
+    private void changeVolume() {
+        MenuManager.audioVolume = volumeSlider.value;
     }
 
     public void quitGame()
