@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public bool knockedBack = false;
     public GameObject bloodEffect;
+    public GameObject particles;
 
 
     // Start is called before the first frame update
@@ -101,7 +102,10 @@ public class EnemyController : MonoBehaviour
         {
             movement = false;
             knockedBack = true;
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+
+            particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
+            Invoke("destroyParticles", 0.1f);
+
             GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
             rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
 
@@ -117,6 +121,13 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    private void destroyParticles()
+    {
+        Debug.Log("destroy particles");
+        Destroy(particles);
+    }
+
 
 
     private void enableMovement ()

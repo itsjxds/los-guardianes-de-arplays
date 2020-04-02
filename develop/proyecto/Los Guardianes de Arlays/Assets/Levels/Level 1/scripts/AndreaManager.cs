@@ -6,6 +6,8 @@ public class AndreaManager : MonoBehaviour
 {
     public GameObject door;
     public GameObject andreaWaiting;
+    public GameObject music1;
+    public GameObject music2;
     public bool interacting = false;
 
     void Update()
@@ -20,5 +22,7 @@ public class AndreaManager : MonoBehaviour
     {
         door.GetComponent<DoorManager>().doorOpen = true;
         andreaWaiting.SetActive(true);
+        music1.SetActive(false);
+        music2.SetActive(true);
     }
 }

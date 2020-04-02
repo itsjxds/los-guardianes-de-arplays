@@ -151,7 +151,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!beingDamaged)
         {
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            GameObject particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
+
+            Invoke("destroyParticles(particles)", 0.2f);
 
             health -= damage;
 
@@ -168,6 +170,11 @@ public class PlayerController : MonoBehaviour
 
             //el script PlayerDied comprueba paralelamente si la salud es 0 o menos y mata al jugador si lo es
         }
+    }
+
+    private void destroyParticles (GameObject particles)
+    {
+        Destroy(particles);
     }
 
 
