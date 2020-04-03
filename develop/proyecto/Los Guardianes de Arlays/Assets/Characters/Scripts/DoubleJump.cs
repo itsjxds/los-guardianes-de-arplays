@@ -19,7 +19,7 @@ public class DoubleJump : MonoBehaviour
         if(extraJumps > 0)
         {
             Debug.Log("can double jump");
-            GetComponentInParent<PlayerController>().jump();
+            GetComponentInParent<PlayerController>().basicJump();
             extraJumps--;
         } else
         {
@@ -27,7 +27,7 @@ public class DoubleJump : MonoBehaviour
             {
                 Debug.Log("can not double jump");
                 extraJumps = extraJumpsValue;
-                GetComponentInParent<PlayerController>().jump();
+                GetComponentInParent<PlayerController>().basicJump();
             }
         }
         

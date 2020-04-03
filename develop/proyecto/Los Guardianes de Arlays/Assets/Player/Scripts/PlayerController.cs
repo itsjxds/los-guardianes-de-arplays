@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
 
     //variables para saltar
     public float jumpPower= 12f;
+    private float jumpTimeCounter;
+    private float jumpTime = 0.3f;
+    private bool isJumping = false;
+    private bool doubleJumpCharacter = false;
 
     //variables para saber si está tocando el suelo
     public bool isGrounded; //true si el jugador está tocando el suelo, false si no
@@ -46,31 +50,18 @@ public class PlayerController : MonoBehaviour
         startScaleX = transform.localScale.x;
 
         maxHealth = health;
+
+        if (PlayerPrefs.activeCharacter == Characters.Andrea)
+        {
+            doubleJumpCharacter = true;
+        }
     }
 
 
     // Update is called once per frame
     void Update ()
     {
-
-        //jump when up arrow or w is pressed
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
-            if (PlayerPrefs.activeCharacter == Characters.Andrea)
-            {   
-                //double jump
-                GetComponentInChildren<DoubleJump>().isGrounded = isGrounded;
-                GetComponentInChildren<DoubleJump>().doubleJump();
-            }
-            else
-            {
-                //can only jump when grounded
-                if (isGrounded)
-                {
-                    jump();
-                }
-            }
-        }
+        complexJump();
 
         attack();
 
@@ -100,7 +91,6 @@ public class PlayerController : MonoBehaviour
         changeScaleX(axisH);
 
     }
-
     
 
 
@@ -112,9 +102,52 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void jump()
+    public void basicJump()
     {
         rbd2d.velocity = new Vector2(rbd2d.velocity.x, jumpPower);
+    }
+
+    private void complexJump ()
+    {
+        float jumpForce = 8f;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            if (doubleJumpCharacter)
+            {
+                //double jump
+                GetComponentInChildren<DoubleJump>().isGrounded = isGrounded;
+                GetComponentInChildren<DoubleJump>().doubleJump();
+            } else
+            {
+                if (isGrounded)
+                {
+                    isJumping = true;
+                    jumpTimeCounter = jumpTime;
+                    rbd2d.velocity = Vector2.up * jumpForce;
+                }
+            }
+        }
+
+        if(!doubleJumpCharacter)
+        {
+            if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && isJumping)
+            {
+                if (jumpTimeCounter > 0)
+                {
+                    rbd2d.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                else {
+                    isJumping = false;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
+            {
+                isJumping = false;
+            }
+        }
     }
 
 
@@ -269,15 +302,4 @@ public class PlayerController : MonoBehaviour
         health += 5;
         healing = false;
     }
-
-
-
-        
-    
-    //todo borrar o usar para habilidad
-    /*void OnDrawGizmosSelected ()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }*/
 }
