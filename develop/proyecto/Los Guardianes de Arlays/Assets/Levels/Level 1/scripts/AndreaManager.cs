@@ -8,6 +8,7 @@ public class AndreaManager : MonoBehaviour
     public GameObject andreaWaiting;
     public GameObject music1;
     public GameObject music2;
+    public GameObject[] guards;
     public bool interacting = false;
 
     void Update()
@@ -15,6 +16,7 @@ public class AndreaManager : MonoBehaviour
         if(interacting)
         {
             openDoor();
+            interacting = false;
         }
     }
 
@@ -24,5 +26,13 @@ public class AndreaManager : MonoBehaviour
         andreaWaiting.SetActive(true);
         music1.SetActive(false);
         music2.SetActive(true);
+
+        foreach (GameObject guard in guards)
+        {
+            if (guard!=null)
+            {
+                guard.SetActive(true);
+            }
+        }
     }
 }

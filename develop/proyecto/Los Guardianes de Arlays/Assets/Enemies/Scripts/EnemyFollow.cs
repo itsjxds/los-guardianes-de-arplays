@@ -43,18 +43,21 @@ public class EnemyFollow : MonoBehaviour
     {
         knockedBack = GetComponent<EnemyController>().knockedBack;
 
-        //agranda la distancia para que no se acerque al jugador cuando está saltando por encima
-        if (target.position.y > transform.position.y)
-        {
-            stoppingDistance++;
-        }
-        else {
-            stoppingDistance = startStoppingDistance;
-        }
-
-
         if (Vector2.Distance(transform.position, target.position) < inactiveDistance)
         {
+            if (Vector2.Distance(transform.position, target.position) < stoppingDistance + 2)
+            {
+                //agranda la distancia para que no se acerque al jugador cuando está saltando por encima
+                if (target.position.y > transform.position.y)
+                {
+                    stoppingDistance++;
+                }
+                else
+                {
+                    stoppingDistance = startStoppingDistance;
+                }
+            }
+
             //si la distancia entre el enemigo y el jugador es mayor que la distancia a la que hay que pararse
             if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
             {
