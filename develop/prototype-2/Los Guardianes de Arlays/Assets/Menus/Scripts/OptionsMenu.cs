@@ -41,6 +41,7 @@ public class OptionsMenu : MonoBehaviour
 
     private void changeVolume() {
         MenuManager.audioVolume = volumeSlider.value;
+        SaveSystem.saveGameData();
     }
 
     public void quitGame()

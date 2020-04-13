@@ -82,6 +82,7 @@ public static class SaveSystem
 
             PlayerPrefs.activeCharacter = data.currentCharacter;
             MenuManager.levelAt = data.levelAt;
+            MenuManager.audioVolume = data.volume;
         }
         else
         {
