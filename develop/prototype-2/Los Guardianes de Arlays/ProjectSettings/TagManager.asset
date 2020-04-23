@@ -11,6 +11,7 @@ TagManager:
   - OptionsMenu
   - LevelSelect
   - Music
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - AutoSave
   - EnemyBarrier
   - EnemySpawner
-  - 
+  - Coins
   - 
   - 
   - 

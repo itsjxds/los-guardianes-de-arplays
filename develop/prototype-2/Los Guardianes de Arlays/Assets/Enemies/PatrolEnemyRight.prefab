@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 8879697927839343403}
   - component: {fileID: 8879697927839343316}
   - component: {fileID: 7037579700441924238}
+  - component: {fileID: 2578781184637503008}
   m_Layer: 9
   m_Name: PatrolEnemyRight
   m_TagString: Enemy
@@ -330,8 +331,10 @@ MonoBehaviour:
   animator: {fileID: 7037579700441924238}
   health: 5
   damage: 5
+  knockedBack: 0
   bloodEffect: {fileID: 5907064056711192878, guid: b75a9e1452a7d4246a03e7d5c29d686f,
     type: 3}
+  numCoins: 2
 --- !u!95 &7037579700441924238
 Animator:
   serializedVersion: 3
@@ -351,6 +354,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2578781184637503008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879697927839343317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cce43cc446c5a24d976ac918625a75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: {fileID: 3170855634031730218, guid: 8cf938ecfeb959a46aa99799e9c00ac5, type: 3}
 --- !u!1 &8880576408558291729
 GameObject:
   m_ObjectHideFlags: 0

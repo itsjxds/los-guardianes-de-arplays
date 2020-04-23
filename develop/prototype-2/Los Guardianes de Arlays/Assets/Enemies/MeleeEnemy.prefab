@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 4783504434530992837}
   - component: {fileID: 4783504434530958654}
   - component: {fileID: 4783504434530958655}
+  - component: {fileID: 7090161892844080406}
   m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -538,6 +539,7 @@ MonoBehaviour:
   knockedBack: 0
   bloodEffect: {fileID: 5907064056711192878, guid: b75a9e1452a7d4246a03e7d5c29d686f,
     type: 3}
+  numCoins: 4
 --- !u!60 &4783504434530958651
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -644,6 +646,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7090161892844080406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783504434530992836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cce43cc446c5a24d976ac918625a75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: {fileID: 3170855634031730218, guid: 8cf938ecfeb959a46aa99799e9c00ac5, type: 3}
 --- !u!1 &4783504434723325462
 GameObject:
   m_ObjectHideFlags: 0

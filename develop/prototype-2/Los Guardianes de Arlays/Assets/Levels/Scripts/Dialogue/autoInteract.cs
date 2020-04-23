@@ -35,6 +35,7 @@ public class autoInteract : MonoBehaviour
     private void interact()
     {
         FindObjectOfType<DialogueManager>().startDialogue(dialogue);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 }

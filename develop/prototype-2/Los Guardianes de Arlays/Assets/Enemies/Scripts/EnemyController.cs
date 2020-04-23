@@ -21,7 +21,10 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public bool knockedBack = false;
     public GameObject bloodEffect;
-    public GameObject particles;
+    private GameObject particles;
+
+    //cuando muere un enemigo aparecen monedas
+    public int numCoins = 2;
 
 
     // Start is called before the first frame update
@@ -116,6 +119,8 @@ public class EnemyController : MonoBehaviour
 
             if (health <= 0)
             {
+                GetComponent<coinInstantiate>().instantiateCoins(numCoins, transform);
+
                 Destroy(gameObject);
                 Debug.Log("Enemy: dead");
             }

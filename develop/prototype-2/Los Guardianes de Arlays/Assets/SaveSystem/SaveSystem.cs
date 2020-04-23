@@ -79,7 +79,7 @@ public static class SaveSystem
             GameData data = (GameData)formatter.Deserialize(stream);
 
             stream.Close();
-
+            PlayerPrefs.money = data.money;
             PlayerPrefs.activeCharacter = data.currentCharacter;
             MenuManager.levelAt = data.levelAt;
             MenuManager.audioVolume = data.volume;
