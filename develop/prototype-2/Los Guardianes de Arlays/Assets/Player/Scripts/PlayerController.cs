@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     public int damage;
     private bool healing = false;
+    public bool healthPotionHealing = false;
     public GameObject bloodEffect;
+    private GameObject particles;
 
     private Rigidbody2D rbd2d;
 
@@ -70,6 +72,11 @@ public class PlayerController : MonoBehaviour
         {
             healing = true;
             Invoke("heal", 18f);
+        }
+
+        if (healthPotionHealing)
+        {
+            heal();
         }
 
     }
@@ -158,8 +165,6 @@ public class PlayerController : MonoBehaviour
             //si el tiempo de recarga del ataque ha llegado a 0, puedes atacar
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("attacking");
-
                 attackActive = true;
 
                 attackObject.SetActive(true);
@@ -184,7 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!beingDamaged)
         {
-            GameObject particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
+            particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
 
             Invoke("destroyParticles(particles)", 0.2f);
 
@@ -193,8 +198,6 @@ public class PlayerController : MonoBehaviour
             beingDamaged = true;
 
             enemyKnockback(posEnemy);
-
-            Debug.Log("player: damage taken, health: " + health);
 
             if (health <= 0)
             {
@@ -230,11 +233,9 @@ public class PlayerController : MonoBehaviour
 
     public void enemyKnockback (float enemyPosition)
     {
-        Debug.Log("knockback ");
         //rbd2d.velocity = new Vector2(jumpPower, rbd2d.velocity.y);
 
         float side = Mathf.Sign(enemyPosition - transform.position.x);
-        Debug.Log("side: "+side);
 
         enemyJump(10f);
 
@@ -292,14 +293,32 @@ public class PlayerController : MonoBehaviour
 
     void die ()
     {
-        Debug.Log("YOU DIED!!!");
         SceneManager.LoadScene("LevelSelect");
     }
 
 
     void heal ()
-    {
-        health += 5;
+    {      
+        if (healthPotionHealing)
+        {
+            if (health < maxHealth)
+            {
+                health += 5;
+
+                if (health < maxHealth - 5)
+                {
+                    health += 5;
+                }
+            }
+            healthPotionHealing = false;
+        } else if (healing)
+        {
+            if (health < maxHealth - 5)
+            {
+                health += 5;
+            }
+        }
+
         healing = false;
     }
 }
