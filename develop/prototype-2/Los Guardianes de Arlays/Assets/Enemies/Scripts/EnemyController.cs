@@ -26,12 +26,18 @@ public class EnemyController : MonoBehaviour
     //cuando muere un enemigo aparecen monedas
     public int numCoins = 2;
 
+    public bool spawnedEnemy = true;
+    private Transform target;
+    public float spawnDistance = 80f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbd2d = GetComponent<Rigidbody2D>();
         startScaleX = transform.localScale.x;
+
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
@@ -61,7 +67,15 @@ public class EnemyController : MonoBehaviour
 
                 //animación de caminar
                 animator.SetFloat("speed", Mathf.Abs(rbd2d.velocity.x));
+        }
+
+        if(spawnedEnemy)
+        {
+            if (Vector2.Distance(transform.position, target.position) > spawnDistance)
+            {
+                GetComponent<destroyObject>().destroy();
             }
+        }
     }
 
     // Update is called once per frame

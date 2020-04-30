@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5606535842233068779}
   - component: {fileID: 1985795355367363069}
   - component: {fileID: 5305900527963074831}
+  - component: {fileID: 335009874429901445}
   m_Layer: 0
   m_Name: Health Particles
   m_TagString: Untagged
@@ -4754,6 +4755,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &335009874429901445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523148772625989713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7b67bb137b7c14796d4f4453e5757b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnStart: 0
 --- !u!1 &5536799690453365610
 GameObject:
   m_ObjectHideFlags: 0
