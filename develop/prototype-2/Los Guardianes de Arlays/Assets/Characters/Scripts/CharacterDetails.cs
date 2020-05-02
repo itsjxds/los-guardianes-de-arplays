@@ -11,4 +11,5 @@ public class CharacterDetails
     public string stats;
     [TextArea(1, 2)]
     public string abilities;
+    public int index;
 }

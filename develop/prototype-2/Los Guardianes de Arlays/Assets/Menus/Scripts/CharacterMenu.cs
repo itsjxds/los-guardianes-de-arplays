@@ -1,24 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMenu : MonoBehaviour
 {
-    private void saveCharacter()
+    public Button[] buttons;
+    void Start ()
     {
-        SaveSystem.saveGameData();
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if(PlayerPrefs.unlockedCharacters[i])
+            {
+                buttons[i].interactable = true;
+            } else
+            {
+                buttons[i].interactable = false;
+            }
+        }
     }
 
     public void activateAlastair() {
         PlayerPrefs.activeCharacter = Characters.Alastair;
-        Debug.Log(PlayerPrefs.activeCharacter);
-        saveCharacter();
     }
+
+    
 
     public void activateAndrea()
     {
         PlayerPrefs.activeCharacter = Characters.Andrea;
-        Debug.Log(PlayerPrefs.activeCharacter);
-        saveCharacter();
     }
 }

@@ -81,6 +81,7 @@ public static class SaveSystem
             stream.Close();
             PlayerPrefs.money = data.money;
             PlayerPrefs.activeCharacter = data.currentCharacter;
+            PlayerPrefs.unlockedCharacters = data.unlockedCharacters;
             MenuManager.levelAt = data.levelAt;
             MenuManager.audioVolume = data.volume;
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public static class PlayerPrefs
 {
     public static Characters activeCharacter = Characters.Alastair;
+    public static bool[] unlockedCharacters = { true, false };
     public static int money = 0;
 }
 

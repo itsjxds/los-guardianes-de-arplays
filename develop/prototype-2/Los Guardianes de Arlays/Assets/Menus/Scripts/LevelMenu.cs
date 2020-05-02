@@ -9,13 +9,13 @@ public class LevelMenu : MonoBehaviour
 
     public Button[] levelList;
     public Button[] worldList;
+    public GameObject warning;
 
     void Start()
     {
         int levelAt = MenuManager.levelAt+3;
         for (int i = 0; i<levelList.Length; i++)
         {
-
             if (i+3 > levelAt)
             {
                 levelList[i].interactable = false;
@@ -30,7 +30,25 @@ public class LevelMenu : MonoBehaviour
 
     public void loadLevel (string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        if (levelName.Equals("Level0"))
+        {
+            if (PlayerPrefs.activeCharacter != Characters.Alastair)
+            {
+                warning.SetActive(true);
+            } else
+            {
+                SceneManager.LoadScene(levelName);
+            }
+        } else
+        {
+            SceneManager.LoadScene(levelName);
+        }
+    }
+
+    public void activateAlastairTutorial()
+    {
+        PlayerPrefs.activeCharacter = Characters.Alastair;
+        SceneManager.LoadScene("Level0");
     }
 
 

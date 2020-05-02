@@ -22,7 +22,7 @@ public class LevelComplete : MonoBehaviour
         {
             this.gameObject.SetActive(false);
 
-            Debug.Log("Level completed!!");
+            unlockCharacter(MenuManager.levelAt);
 
             MenuManager.levelAt = nextScene - 3;
 
@@ -34,6 +34,14 @@ public class LevelComplete : MonoBehaviour
 
             Invoke("levelCompleted", 1f);
 
+        }
+    }
+
+    private void unlockCharacter (int levelAt)
+    {
+        if (levelAt == 1)
+        {
+            PlayerPrefs.unlockedCharacters[1] = true;
         }
     }
 
