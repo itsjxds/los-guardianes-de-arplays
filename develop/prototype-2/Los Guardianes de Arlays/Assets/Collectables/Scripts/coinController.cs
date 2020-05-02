@@ -6,7 +6,6 @@ public class coinController : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("collision coin");
         if (col.gameObject.tag == "Player")
         {
             PlayerPrefs.money += 1;

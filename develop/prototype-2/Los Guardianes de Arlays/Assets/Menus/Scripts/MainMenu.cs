@@ -37,13 +37,11 @@ public class MainMenu : MonoBehaviour
     public void options ()
     {
         MenuManager.backMenu = "MainMenu";
-        Debug.Log(MenuManager.backMenu);
         SceneManager.LoadScene("OptionsMenu");
     }
 
     public void quitGame ()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 }

@@ -21,8 +21,6 @@ public class PlayerDied : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("player: dead");
-
             levelFailedUI.SetActive(true);
 
             Invoke("die", 1f);
@@ -32,7 +30,6 @@ public class PlayerDied : MonoBehaviour
     private void die ()
     {
         levelFailedUI.SetActive(false);
-        Debug.Log("YOU DIED!!!");
         SaveSystem.deletePlayerSave();
 
         SceneManager.LoadScene("LevelSelect");

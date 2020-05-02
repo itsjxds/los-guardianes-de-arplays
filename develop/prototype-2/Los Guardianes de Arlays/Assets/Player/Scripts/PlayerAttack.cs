@@ -21,7 +21,6 @@ public class PlayerAttack : MonoBehaviour
     {
         if(col.CompareTag("Enemy"))
         {
-            Debug.Log("collision sword with enemy");
             col.GetComponent<EnemyController>().takeDamage(GetComponentInParent<PlayerController>().damage);
         }
     }

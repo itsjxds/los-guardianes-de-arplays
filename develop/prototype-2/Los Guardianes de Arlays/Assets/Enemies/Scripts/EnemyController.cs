@@ -127,7 +127,6 @@ public class EnemyController : MonoBehaviour
             rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
 
             health -= damage;
-            Debug.Log("Enemy: damage taken: " + health);
 
             Invoke("enableMovement", 0.6f);
 
@@ -136,14 +135,12 @@ public class EnemyController : MonoBehaviour
                 GetComponent<coinInstantiate>().instantiateCoins(numCoins, transform);
 
                 Destroy(gameObject);
-                Debug.Log("Enemy: dead");
             }
         }
     }
 
     private void destroyParticles()
     {
-        Debug.Log("destroy particles");
         Destroy(particles);
     }
 
@@ -161,10 +158,8 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("collision player");
 
             float yOffSet = 1.2f;
 

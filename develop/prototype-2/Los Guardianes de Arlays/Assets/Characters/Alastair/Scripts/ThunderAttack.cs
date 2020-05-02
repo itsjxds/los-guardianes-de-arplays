@@ -20,7 +20,6 @@ public class ThunderAttack : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            Debug.Log("collision sword with enemy");
             col.GetComponent<EnemyController>().takeDamage(10);
         }
     }

@@ -31,13 +31,10 @@ public class AlastairController : MonoBehaviour
     {
         if (timeBtwAttack <= 0)
         {
-            Debug.Log("can attack");
 
             //si el tiempo de recarga del ataque ha llegado a 0, puedes atacar
             if (Input.GetKeyDown(KeyCode.C)||buttonPressed)
             {
-                Debug.Log("attacking");
-
                 thunderActive = true;
 
                 attackObject.SetActive(true);

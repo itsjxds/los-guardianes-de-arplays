@@ -24,8 +24,6 @@ public class CharacterMenu : MonoBehaviour
         PlayerPrefs.activeCharacter = Characters.Alastair;
     }
 
-    
-
     public void activateAndrea()
     {
         PlayerPrefs.activeCharacter = Characters.Andrea;

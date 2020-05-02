@@ -23,7 +23,6 @@ public class EnemyAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Debug.Log("collision enemy sword with player");
             col.GetComponent<PlayerController>().takeDamage(GetComponentInParent<EnemyController>().damage + damageIncrement, transform.position.y);
         }
     }

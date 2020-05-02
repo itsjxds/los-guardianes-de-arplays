@@ -20,11 +20,9 @@ public class HurtPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
             col.gameObject.GetComponent<PlayerController>().takeDamage(damage, transform.position.x);
-            //col.gameObject.GetComponent<PlayerController>().knockback();
 
             col.gameObject.GetComponent<PlayerController>().enemyJump(12f);
         }

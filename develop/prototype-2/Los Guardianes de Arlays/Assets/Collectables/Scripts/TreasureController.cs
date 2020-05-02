@@ -9,7 +9,6 @@ public class TreasureController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("collision treasure");
         if (col.gameObject.tag == "Player")
         {
             GetComponent<SpriteRenderer>().sprite = openTresureSprite;

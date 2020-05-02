@@ -22,7 +22,6 @@ public class OptionsMenu : MonoBehaviour
     public void goBack ()
     {
         backMenu = MenuManager.backMenu;
-        Debug.Log(backMenu);
 
         switch(backMenu)
         {
@@ -46,7 +45,6 @@ public class OptionsMenu : MonoBehaviour
 
     public void quitGame()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 }
