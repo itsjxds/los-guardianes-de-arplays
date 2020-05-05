@@ -50,8 +50,6 @@ public class LevelComplete : MonoBehaviour
     {
         levelCompletedUI.SetActive(false);
 
-        SaveSystem.deletePlayerSave();
-
         SceneManager.LoadScene("LevelSelect");
     }
 }
