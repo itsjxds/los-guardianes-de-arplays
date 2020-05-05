@@ -25,7 +25,12 @@ public class ItemEffects : MonoBehaviour
         player.healthPotionHealing = true;
         particles = Instantiate(healingEffect, player.transform.position, Quaternion.identity) as GameObject;
 
-        Invoke("destroyParticles(particles)", 0.2f);
+        Invoke("destroySelf", 0.2f);
+    }
+
+    private void destroySelf()
+    {
+        Destroy(gameObject);
     }
 
     private void destroyParticles(GameObject particles)

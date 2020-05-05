@@ -10,4 +10,5 @@ public class ItemDetails
     public int price;
     [TextArea(1, 2)]
     public string effects;
+    public GameObject item;
 }

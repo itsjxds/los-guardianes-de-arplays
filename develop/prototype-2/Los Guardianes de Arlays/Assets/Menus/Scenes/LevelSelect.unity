@@ -2726,6 +2726,7 @@ MonoBehaviour:
     name: Health Potion
     price: 200
     effects: Heals 2 hearts
+    item: {fileID: 4713371101859365080, guid: 158f5ccae3ab5354da3a59bb677a7dad, type: 3}
 --- !u!114 &641439262
 MonoBehaviour:
   m_ObjectHideFlags: 0

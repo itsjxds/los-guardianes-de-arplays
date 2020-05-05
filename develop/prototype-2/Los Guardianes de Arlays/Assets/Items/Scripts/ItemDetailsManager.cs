@@ -15,10 +15,11 @@ public class ItemDetailsManager : MonoBehaviour
     private int price;
 
     public Button buyButton;
+    private GameObject item;
 
     void Update ()
     {
-        if (PlayerPrefs.money < price)
+        if (PlayerPrefs.money < price || InventoryManager.inventoryFull())
         {
             buyButton.interactable = false;
         } else
@@ -38,6 +39,7 @@ public class ItemDetailsManager : MonoBehaviour
         effectsUI.text = details.effects;
 
         price = details.price;
+        item = details.item;
     }
 
     public void hideDetails()
@@ -49,7 +51,7 @@ public class ItemDetailsManager : MonoBehaviour
     {
         if (PlayerPrefs.money >= price)
         {
-            //TODO BUY
+            InventoryManager.addItem(item);
             PlayerPrefs.money -= price;
         }
     }

@@ -38,7 +38,6 @@ public static class SaveSystem
 
         } else
         {
-            Debug.LogError("save file not found in "+pathPlayer);
             return null;
         }
     }
@@ -84,10 +83,6 @@ public static class SaveSystem
             PlayerPrefs.unlockedCharacters = data.unlockedCharacters;
             MenuManager.levelAt = data.levelAt;
             MenuManager.audioVolume = data.volume;
-        }
-        else
-        {
-            Debug.LogError("save file not found in " + pathPlayer);
         }
     }
 
