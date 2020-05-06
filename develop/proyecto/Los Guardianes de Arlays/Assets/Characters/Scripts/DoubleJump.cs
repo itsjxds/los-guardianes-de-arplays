@@ -18,14 +18,12 @@ public class DoubleJump : MonoBehaviour
     {
         if(extraJumps > 0)
         {
-            Debug.Log("can double jump");
             GetComponentInParent<PlayerController>().basicJump();
             extraJumps--;
         } else
         {
             if(isGrounded)
             {
-                Debug.Log("can not double jump");
                 extraJumps = extraJumpsValue;
                 GetComponentInParent<PlayerController>().basicJump();
             }

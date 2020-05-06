@@ -25,7 +25,6 @@ public class autoInteract : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
             interact();
@@ -35,6 +34,6 @@ public class autoInteract : MonoBehaviour
     private void interact()
     {
         FindObjectOfType<DialogueManager>().startDialogue(dialogue);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

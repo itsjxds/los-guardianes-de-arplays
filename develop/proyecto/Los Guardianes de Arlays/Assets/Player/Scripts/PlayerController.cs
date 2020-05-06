@@ -37,8 +37,11 @@ public class PlayerController : MonoBehaviour
     public int health;
     private int maxHealth;
     public int damage;
+    private int bonusDamage = PlayerPrefs.bonusDamage;
     private bool healing = false;
+    public bool healthPotionHealing = false;
     public GameObject bloodEffect;
+    private GameObject particles;
 
     private Rigidbody2D rbd2d;
 
@@ -46,6 +49,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damage += bonusDamage;
+
         rbd2d = GetComponent<Rigidbody2D>();
         startScaleX = transform.localScale.x;
 
@@ -70,6 +75,11 @@ public class PlayerController : MonoBehaviour
         {
             healing = true;
             Invoke("heal", 18f);
+        }
+
+        if (healthPotionHealing)
+        {
+            heal();
         }
 
     }
@@ -158,8 +168,6 @@ public class PlayerController : MonoBehaviour
             //si el tiempo de recarga del ataque ha llegado a 0, puedes atacar
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("attacking");
-
                 attackActive = true;
 
                 attackObject.SetActive(true);
@@ -184,7 +192,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!beingDamaged)
         {
-            GameObject particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
+            particles = Instantiate(bloodEffect, transform.position, Quaternion.identity) as GameObject;
 
             Invoke("destroyParticles(particles)", 0.2f);
 
@@ -193,8 +201,6 @@ public class PlayerController : MonoBehaviour
             beingDamaged = true;
 
             enemyKnockback(posEnemy);
-
-            Debug.Log("player: damage taken, health: " + health);
 
             if (health <= 0)
             {
@@ -230,23 +236,9 @@ public class PlayerController : MonoBehaviour
 
     public void enemyKnockback (float enemyPosition)
     {
-        Debug.Log("knockback ");
-        //rbd2d.velocity = new Vector2(jumpPower, rbd2d.velocity.y);
-
         float side = Mathf.Sign(enemyPosition - transform.position.x);
-        Debug.Log("side: "+side);
 
         enemyJump(10f);
-
-        //rbd2d.velocity = Vector2.left * side * jumpPower;
-        //rbd2d.AddForce(Vector2.left * 60, ForceMode2D.Impulse);
-        //rbd2d.AddForce(new Vector2(rbd2d.position.x, jumpPower));
-
-        //todo el más convincente hasta la fecha tbh
-        //rbd2d.velocity = new Vector2(0, rbd2d.position.y);
-        //rbd2d.AddForce(new Vector2(jumpPower*side, rbd2d.position.y), ForceMode2D.Impulse);
-
-        //todo A QUIEN LE IMPORTA PORQUE EL KNOCKBACK TIENE CONFLICTO CON EL SALTO LOL IDK WHY
 
         movement = false;
         GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
@@ -254,27 +246,7 @@ public class PlayerController : MonoBehaviour
         Invoke("enableMovement", 0.75f);
     }
 
-    /*public IEnumerator knockback()
-    {
-        Debug.Log("knockback ");
-
-        float timer = 0;
-        float kbdur = 0.02f;
-        Vector2 kbdir = rbd2d.position;
-
-        while (timer < kbdur)
-        {
-            rbd2d.AddForce(new Vector2 (-10, 2));
-            timer += Time.deltaTime;
-        }
-
-        movement = false;
-        GetComponentInChildren<ChangeColorKnockback>().changeColorRed();
-
-        Invoke("enableMovement", 0.8f);
-
-        yield return 0;
-    }*/
+   
 
     public void enemyJump(float power)
     {
@@ -292,14 +264,32 @@ public class PlayerController : MonoBehaviour
 
     void die ()
     {
-        Debug.Log("YOU DIED!!!");
         SceneManager.LoadScene("LevelSelect");
     }
 
 
     void heal ()
-    {
-        health += 5;
+    {      
+        if (healthPotionHealing)
+        {
+            if (health < maxHealth)
+            {
+                health += 5;
+
+                if (health < maxHealth - 5)
+                {
+                    health += 5;
+                }
+            }
+            healthPotionHealing = false;
+        } else if (healing)
+        {
+            if (health < maxHealth - 5)
+            {
+                health += 5;
+            }
+        }
+
         healing = false;
     }
 }

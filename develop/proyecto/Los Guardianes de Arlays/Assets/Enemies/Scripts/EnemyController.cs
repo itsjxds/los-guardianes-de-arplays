@@ -21,7 +21,14 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public bool knockedBack = false;
     public GameObject bloodEffect;
-    public GameObject particles;
+    private GameObject particles;
+
+    //cuando muere un enemigo aparecen monedas
+    public int numCoins = 2;
+
+    public bool spawnedEnemy = true;
+    private Transform target;
+    public float spawnDistance = 80f;
 
 
     // Start is called before the first frame update
@@ -29,6 +36,8 @@ public class EnemyController : MonoBehaviour
     {
         rbd2d = GetComponent<Rigidbody2D>();
         startScaleX = transform.localScale.x;
+
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
@@ -58,7 +67,15 @@ public class EnemyController : MonoBehaviour
 
                 //animación de caminar
                 animator.SetFloat("speed", Mathf.Abs(rbd2d.velocity.x));
+        }
+
+        if(spawnedEnemy)
+        {
+            if (Vector2.Distance(transform.position, target.position) > spawnDistance)
+            {
+                GetComponent<destroyObject>().destroy();
             }
+        }
     }
 
     // Update is called once per frame
@@ -110,21 +127,20 @@ public class EnemyController : MonoBehaviour
             rbd2d.velocity = new Vector2(rbd2d.velocity.x, 5f);
 
             health -= damage;
-            Debug.Log("Enemy: damage taken: " + health);
 
             Invoke("enableMovement", 0.6f);
 
             if (health <= 0)
             {
+                GetComponent<coinInstantiate>().instantiateCoins(numCoins, transform);
+
                 Destroy(gameObject);
-                Debug.Log("Enemy: dead");
             }
         }
     }
 
     private void destroyParticles()
     {
-        Debug.Log("destroy particles");
         Destroy(particles);
     }
 
@@ -142,10 +158,8 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("collision player");
 
             float yOffSet = 1.2f;
 

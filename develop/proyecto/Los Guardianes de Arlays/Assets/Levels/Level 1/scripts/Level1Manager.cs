@@ -5,6 +5,7 @@ using UnityEngine;
 public class Level1Manager : MonoBehaviour
 {
     public GameObject andreaNPC;
+    public GameObject autodialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,18 @@ public class Level1Manager : MonoBehaviour
             GameObject door = andreaNPC.GetComponent<AndreaManager>().door;
             door.GetComponent<DoorManager>().doorOpen = true;
 
+            GameObject[] guards = andreaNPC.GetComponent<AndreaManager>().guards;
+
+            foreach (GameObject guard in guards)
+            {
+                if (guard != null)
+                {
+                    guard.SetActive(true);
+                }
+            }
+
             andreaNPC.SetActive(false);
+            autodialogue.SetActive(false);
         }
     }
 }

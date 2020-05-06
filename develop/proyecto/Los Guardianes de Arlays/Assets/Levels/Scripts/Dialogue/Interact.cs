@@ -34,7 +34,6 @@ public class Interact : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
             popUpMessage.gameObject.SetActive(true);
@@ -44,7 +43,6 @@ public class Interact : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("collision");
         if (col.gameObject.tag == "Player")
         {
             popUpMessage.gameObject.SetActive(false);

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Button resumeButton;
+    public GameObject warningNewGame;
 
     void Start()
     { 
@@ -23,9 +24,19 @@ public class MainMenu : MonoBehaviour
     {
         //borrar save systems files que haya
         SaveSystem.deleteGameData();
-        SaveSystem.deletePlayerSave();
 
         SceneManager.LoadScene("Level0");
+    }
+
+    public void warning()
+    {
+        if (SaveSystem.existsGameData())
+        {
+            warningNewGame.SetActive(true);
+        } else
+        {
+            newGame();
+        }
     }
 
     public void resume()
@@ -37,13 +48,11 @@ public class MainMenu : MonoBehaviour
     public void options ()
     {
         MenuManager.backMenu = "MainMenu";
-        Debug.Log(MenuManager.backMenu);
         SceneManager.LoadScene("OptionsMenu");
     }
 
     public void quitGame ()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 }

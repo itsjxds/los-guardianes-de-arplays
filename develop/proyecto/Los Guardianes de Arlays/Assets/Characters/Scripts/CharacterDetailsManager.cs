@@ -11,6 +11,7 @@ public class CharacterDetailsManager : MonoBehaviour
     public TextMeshProUGUI statsUI;
     public TextMeshProUGUI abilitiesUI;
     public GameObject detailsUI;
+    public int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +33,25 @@ public class CharacterDetailsManager : MonoBehaviour
         nameUI.text = details.name;
         statsUI.text = details.stats;
         abilitiesUI.text = details.abilities;
+        index = details.index;
     }
 
     public void hideDetails()
     {
         detailsUI.SetActive(false);
+    }
+
+    public void activateCharacter()
+    {
+        switch (index)
+        {
+            case 0:
+                PlayerPrefs.activeCharacter = Characters.Alastair;
+                break;
+            case 1:
+                PlayerPrefs.activeCharacter = Characters.Andrea;
+                break;
+        }
+        
     }
 }

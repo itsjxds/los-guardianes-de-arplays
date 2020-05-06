@@ -8,12 +8,6 @@ public class PlayerDied : MonoBehaviour
     private int health;
     public GameObject levelFailedUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,8 +15,6 @@ public class PlayerDied : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("player: dead");
-
             levelFailedUI.SetActive(true);
 
             Invoke("die", 1f);
@@ -32,8 +24,6 @@ public class PlayerDied : MonoBehaviour
     private void die ()
     {
         levelFailedUI.SetActive(false);
-        Debug.Log("YOU DIED!!!");
-        SaveSystem.deletePlayerSave();
 
         SceneManager.LoadScene("LevelSelect");
     }

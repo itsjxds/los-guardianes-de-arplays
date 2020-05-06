@@ -6,64 +6,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-    private static string pathPlayer = Application.persistentDataPath + "/player.data";
     private static string pathGameData = Application.persistentDataPath + "/game1.data";
-
-
-    public static void savePlayer(PlayerController player)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        
-        FileStream stream = new FileStream(pathPlayer, FileMode.Create);
-
-        PlayerData data = new PlayerData(player);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-
-
-    public static PlayerData loadPlayer ()
-    {
-        if(File.Exists(pathPlayer))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(pathPlayer, FileMode.Open);
-
-            PlayerData data = (PlayerData)formatter.Deserialize(stream);
-            
-            stream.Close();
-
-            return data;
-
-        } else
-        {
-            Debug.LogError("save file not found in "+pathPlayer);
-            return null;
-        }
-    }
-
-
-    public static void deletePlayerSave ()
-    {
-        if(File.Exists(pathPlayer))
-        {
-            File.Delete(pathPlayer);
-        }
-    }
-
-
-
 
     //saving the game
     public static void saveGameData()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-
         FileStream stream = new FileStream(pathGameData, FileMode.Create);
-
         GameData data = new GameData();
-
         formatter.Serialize(stream, data);
         stream.Close();
     }
@@ -75,17 +25,15 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(pathGameData, FileMode.Open);
-
             GameData data = (GameData)formatter.Deserialize(stream);
-
             stream.Close();
 
+            PlayerPrefs.money = data.money;
             PlayerPrefs.activeCharacter = data.currentCharacter;
+            PlayerPrefs.unlockedCharacters = data.unlockedCharacters;
             MenuManager.levelAt = data.levelAt;
-        }
-        else
-        {
-            Debug.LogError("save file not found in " + pathPlayer);
+            MenuManager.audioVolume = data.volume;
+            PlayerPrefs.bonusDamage = data.attackBonus;
         }
     }
 
@@ -102,6 +50,4 @@ public static class SaveSystem
     {
         return File.Exists(pathGameData);
     }
-
-
 }
